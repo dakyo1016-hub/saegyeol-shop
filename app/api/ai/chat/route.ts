@@ -93,7 +93,7 @@ export async function POST(request: Request) {
       return Response.json({ message }, { status });
     }
 
-    const reply = payload.choices?.[0]?.message?.content?.trim();
+    const reply = payload.choices?.[0]?.message?.content?.replace(/[\u200B-\u200D\u2060\uFEFF]/g, "").trim();
     if (!reply) return Response.json({ message: "답변을 만들지 못했습니다. 질문을 조금 다르게 적어주세요." }, { status: 502 });
     return Response.json({ reply, model: "Groq · GPT-OSS 20B" });
   } catch {

@@ -26,6 +26,7 @@ function escapeHtml(value) {
 
 function formatReply(value) {
   return escapeHtml(value)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(\/product\.html\?id=\d+)/g, '<a href="$1">상품 보기 ↗</a>')
     .replace(/\n/g, "<br />");
 }
