@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#11110f" />
+    <title>결제 중단 — 새결</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="payment-result-page payment-result-page--fail">
+    <main class="payment-result">
+      <p class="eyebrow">PAYMENT PAUSED</p>
+      <span class="payment-result__mark">×</span>
+      <h1>결제를<br />완료하지 못했어요.</h1>
+      <p class="payment-result__copy" id="paymentFailMessage">결제가 취소되었거나 인증 과정에서 문제가 발생했습니다.</p>
+      <a class="payment-result__action" href="./checkout.html">주문서로 돌아가기 <span>↗</span></a>
+    </main>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const code = params.get("code");
+      const message = params.get("message");
+      document.querySelector("#paymentFailMessage").textContent = code === "PAY_PROCESS_CANCELED"
+        ? "결제를 취소했습니다. 주문 정보는 그대로 보관되어 있습니다."
+        : (message || "인증 과정에서 문제가 발생했습니다. 다시 시도해주세요.");
+    </script>
+  </body>
+</html>

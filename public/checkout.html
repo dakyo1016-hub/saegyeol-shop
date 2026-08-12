@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./src/styles.css" />
+    <script src="https://js.tosspayments.com/v2/standard"></script>
   </head>
   <body class="checkout-page">
     <header class="checkout-header">
@@ -45,12 +46,12 @@
           </section>
 
           <section class="checkout-block">
-            <div class="checkout-block__head"><span>03</span><h2>결제 방법</h2><small>안전한 암호화 결제</small></div>
-            <div class="payment-methods">
-              <label><input type="radio" name="payment" value="card" checked /><span>신용·체크카드</span></label>
-              <label><input type="radio" name="payment" value="kakao" /><span>카카오페이</span></label>
-              <label><input type="radio" name="payment" value="naver" /><span>네이버페이</span></label>
-              <label><input type="radio" name="payment" value="toss" /><span>토스페이</span></label>
+            <div class="checkout-block__head"><span>03</span><h2>결제 방법</h2><small>토스페이먼츠 테스트 결제</small></div>
+            <div class="toss-payment-shell">
+              <div class="toss-test-label"><span>TEST MODE</span><p>카드·간편결제·계좌이체 중 원하는 방법을 선택하세요. 실제 금액은 출금되지 않습니다.</p></div>
+              <div id="payment-method"></div>
+              <div id="agreement"></div>
+              <p class="toss-loading" role="status">안전한 결제 화면을 불러오고 있습니다.</p>
             </div>
           </section>
         </div>
@@ -69,7 +70,7 @@
           </div>
           <label class="checkout-consent"><input type="checkbox" required /><span>주문 상품, 가격, 배송 정보 및 구매 조건을 확인했으며 결제에 동의합니다.</span></label>
           <button class="place-order" type="submit"><span class="pay-button-price">₩0</span> 결제하기 <i>↗</i></button>
-          <p class="payment-note">이 프로토타입은 실제 금액이 결제되지 않습니다.</p>
+          <p class="payment-note">토스페이먼츠 테스트 환경입니다. 승인되어도 실제 금액은 출금되지 않습니다.</p>
         </aside>
       </form>
     </main>
