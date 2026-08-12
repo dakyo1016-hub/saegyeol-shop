@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1eb" />
+    <meta name="description" content="새결 셀렉트 상품 상세" />
+    <title>상품 상세 — 새결</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="product-page">
+    <header class="site-header scrolled product-header" id="siteHeader">
+      <a class="brand" href="./index.html" aria-label="새결 홈"><b>새결</b><small>새로운 취향의 결</small></a>
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <a href="./index.html#new">NEW</a>
+        <a href="./index.html#ranking">RANKING</a>
+        <a href="./index.html#fashion">FASHION</a>
+        <a href="./index.html#beauty">BEAUTY</a>
+        <a href="./magazine.html">MAGAZINE</a>
+        <a class="nav-sale" href="./index.html#sale">SALE</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="./index.html#new" aria-label="검색">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+        </a>
+        <button class="icon-btn desktop-only account-toggle" type="button" aria-label="마이페이지">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.8 21c.7-4 3.1-6 7.2-6s6.5 2 7.2 6"/></svg>
+        </button>
+        <button class="icon-btn desktop-only wishlist-toggle" type="button" aria-label="찜 목록">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 5.6c-2.1-2.1-5.6-1.8-7.5.5l-1 1.2-1-1.2c-1.9-2.3-5.4-2.6-7.5-.5-2.3 2.3-2.1 6 .3 8.1L12 21l8.2-7.3c2.4-2.1 2.6-5.8.3-8.1Z"/></svg>
+        </button>
+        <button class="cart-btn" type="button" aria-label="장바구니">CART <span class="cart-count">0</span></button>
+        <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <nav>
+        <a href="./index.html#new"><span>01</span>NEW</a>
+        <a href="./index.html#ranking"><span>02</span>RANKING</a>
+        <a href="./index.html#fashion"><span>03</span>FASHION</a>
+        <a href="./index.html#beauty"><span>04</span>BEAUTY</a>
+        <a href="./magazine.html"><span>05</span>MAGAZINE</a>
+        <button class="mobile-account account-toggle" type="button"><span>06</span>MY 새결</button>
+        <button class="mobile-account wishlist-toggle" type="button"><span>07</span>WISHLIST</button>
+      </nav>
+      <p>오늘의 결을 입다.</p>
+    </div>
+
+    <main class="pdp-main">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="./index.html">HOME</a><span>/</span><a id="breadcrumbCategory" href="./index.html#new">FASHION</a><span>/</span><strong id="breadcrumbBrand">BRAND</strong>
+      </nav>
+
+      <section class="pdp" aria-labelledby="productTitle">
+        <div class="pdp-gallery" id="productGallery" aria-label="상품 이미지"></div>
+
+        <aside class="pdp-buy">
+          <div class="pdp-buy__topline">
+            <button class="pdp-brand" id="productBrand" type="button" aria-expanded="false" aria-controls="brandInfo">BRAND +</button>
+            <button class="share-btn" type="button" aria-label="상품 공유">SHARE ↗</button>
+          </div>
+          <div class="brand-popover" id="brandInfo" aria-hidden="true">
+            <div><span id="brandInitial">B</span><p><strong id="brandInfoName">BRAND</strong><small id="brandMood">BRAND MOOD</small></p></div>
+            <p id="brandDescription"></p>
+            <a href="./index.html#new">이 브랜드의 상품 보기 <span>↗</span></a>
+          </div>
+          <h1 id="productTitle">상품명</h1>
+          <a class="pdp-rating" href="#reviews"><span>★★★★★</span> 4.8 <u>리뷰 128</u></a>
+
+          <div class="pdp-price" id="productPrice"></div>
+          <div class="pdp-benefit">
+            <div><span>회원 혜택</span><strong>신규 회원 10% 쿠폰</strong><button type="button">받기 ↓</button></div>
+            <div><span>적립금</span><strong>최대 3,780원 적립</strong></div>
+          </div>
+
+          <div class="delivery-box">
+            <span class="delivery-dot"></span>
+            <div><strong>오늘 주문하면 8/13(목) 도착 예정</strong><p>50,000원 이상 무료배송 · 새결배송</p></div>
+          </div>
+
+          <div class="option-block">
+            <div class="option-head"><span id="optionLabel">SIZE</span><button id="guideButton" type="button">가이드 보기 ↗</button></div>
+            <div class="option-list" id="productOptions"></div>
+            <p class="option-hint" id="optionHint">옵션을 선택해주세요.</p>
+          </div>
+
+          <div class="pdp-actions">
+            <button class="pdp-wish" type="button" aria-label="찜하기">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 5.6c-2.1-2.1-5.6-1.8-7.5.5l-1 1.2-1-1.2c-1.9-2.3-5.4-2.6-7.5-.5-2.3 2.3-2.1 6 .3 8.1L12 21l8.2-7.3c2.4-2.1 2.6-5.8.3-8.1Z"/></svg>
+            </button>
+            <button class="pdp-cart" type="button">장바구니 담기 <span>+</span></button>
+            <button class="pdp-buy-now" type="button">바로 구매</button>
+          </div>
+
+          <div class="pdp-accordions">
+            <details open><summary>상품 설명 <span>+</span></summary><p id="productSummary"></p></details>
+            <details><summary>소재 및 주요 성분 <span>+</span></summary><p id="productMaterial"></p></details>
+            <details><summary>배송 및 교환/반품 <span>+</span></summary><p>평균 배송일은 결제 후 1–3일입니다. 수령 후 7일 이내 미사용 상품에 한해 교환 및 반품을 신청할 수 있습니다.</p></details>
+          </div>
+        </aside>
+      </section>
+
+      <section class="pdp-story">
+        <p class="eyebrow">SELECTED BY 새결</p>
+        <h2>취향의 결을<br />완성하는 한 가지.</h2>
+        <p id="productDetail"></p>
+        <div class="pdp-story-meta"><span id="productColor">COLOR</span><span id="productMaterialShort">MATERIAL</span></div>
+      </section>
+
+      <nav class="community-tabs" aria-label="상품 리뷰와 문의">
+        <button class="active" data-community="reviews" type="button">REVIEW <span>128</span></button>
+        <button data-community="qa" type="button">Q&amp;A <span>14</span></button>
+      </nav>
+
+      <section class="review-section community-panel" id="reviews">
+        <div class="review-summary">
+          <div><p class="eyebrow">REAL REVIEW</p><h2>4.8</h2><span class="review-stars">★★★★★</span><p>구매 고객 128명의 평가</p></div>
+          <div class="rating-bars">
+            <p><span>5점</span><i><b style="width:86%"></b></i><small>86%</small></p>
+            <p><span>4점</span><i><b style="width:11%"></b></i><small>11%</small></p>
+            <p><span>3점</span><i><b style="width:3%"></b></i><small>3%</small></p>
+            <p><span>2점</span><i><b style="width:0%"></b></i><small>0%</small></p>
+            <p><span>1점</span><i><b style="width:0%"></b></i><small>0%</small></p>
+          </div>
+        </div>
+        <div class="review-toolbar"><div><button class="active" data-review-sort="smart" type="button">사진 리뷰 우선</button><button data-review-sort="similar" type="button">나와 비슷한 체형</button><button data-review-sort="all" type="button">전체 리뷰</button></div><p class="review-match-note"></p></div>
+        <div class="review-cards" id="reviewCards"></div>
+      </section>
+
+      <section class="qa-section community-panel" id="qa" hidden>
+        <div class="qa-head">
+          <div><p class="eyebrow">PRODUCT Q&amp;A</p><h2>상품 문의</h2><p>상품, 옵션, 배송에 대해 궁금한 점을 남겨주세요.</p></div>
+          <button class="qa-write-toggle" type="button">상품 문의 작성 <span>+</span></button>
+        </div>
+        <form class="qa-form" hidden>
+          <div class="qa-form__row"><label>문의 유형<select name="type"><option>상품 문의</option><option>사이즈·옵션</option><option>배송 문의</option><option>교환·반품</option></select></label><label class="qa-secret"><input type="checkbox" name="secret" /> 비밀글로 문의</label></div>
+          <label>문의 내용<textarea name="question" maxlength="500" placeholder="상품에 대해 궁금한 내용을 입력해주세요." required></textarea></label>
+          <div><small>개인정보와 연락처는 작성하지 마세요.</small><button type="submit">문의 등록 <span>↗</span></button></div>
+        </form>
+        <div class="qa-toolbar"><div><button class="active" data-qa-filter="all" type="button">전체</button><button data-qa-filter="answered" type="button">답변 완료</button><button data-qa-filter="waiting" type="button">답변 대기</button></div><span>총 <b class="qa-count">14</b>건</span></div>
+        <div class="qa-list" id="qaList"></div>
+      </section>
+
+      <section class="related-section">
+        <div class="related-head"><div><p class="eyebrow">SIMILAR ITEMS</p><h2>이 상품과 비슷한 결</h2></div><div class="related-controls"><button class="related-prev" type="button" aria-label="이전 상품">←</button><button class="related-next" type="button" aria-label="다음 상품">→</button></div></div>
+        <div class="related-viewport"><div class="related-grid" id="relatedGrid"></div></div>
+        <div class="related-progress"><span></span><a href="./index.html#new">전체 상품 보기 ↗</a></div>
+      </section>
+    </main>
+
+    <div class="mobile-purchase-bar">
+      <button class="mobile-wish" type="button" aria-label="찜하기">♡</button>
+      <button class="mobile-cart" type="button">장바구니 담기</button>
+      <button class="mobile-buy" type="button">바로 구매</button>
+    </div>
+
+    <footer class="footer product-footer">
+      <div class="footer-brand">새결</div>
+      <div class="footer-bottom"><span>© 2026 새결. ALL RIGHTS RESERVED.</span><span>오늘의 결을 입다.</span></div>
+    </footer>
+    <div class="toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+    <script type="module" src="./src/product-detail.js?v=20260811-3"></script>
+  </body>
+</html>

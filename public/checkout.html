@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1eb" />
+    <title>주문서 — 새결</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a class="brand" href="./index.html"><b>새결</b><small>새로운 취향의 결</small></a>
+      <div class="checkout-steps"><strong>01 주문서</strong><span>02 결제</span><span>03 완료</span></div>
+      <a href="javascript:history.back()">BACK ×</a>
+    </header>
+
+    <main class="checkout-main">
+      <div class="checkout-title"><p class="eyebrow">CHECKOUT</p><h1>주문서</h1><p>한 번만 더 확인하면<br />새로운 결이 곧 도착합니다.</p></div>
+      <form class="checkout-form" id="checkoutForm">
+        <div class="checkout-fields">
+          <section class="checkout-block">
+            <div class="checkout-block__head"><span>01</span><h2>주문자·배송지</h2><small>필수 입력</small></div>
+            <div class="field-grid">
+              <label>받는 분<input name="recipient" placeholder="이름" required /></label>
+              <label>연락처<input name="phone" inputmode="tel" placeholder="010-0000-0000" required /></label>
+              <label class="field-full">주소<div class="address-line"><input name="postcode" placeholder="우편번호" required /><button type="button" class="address-search">주소 찾기</button></div></label>
+              <label class="field-full"><span class="sr-only">기본 주소</span><input name="address" placeholder="기본 주소" required /></label>
+              <label class="field-full"><span class="sr-only">상세 주소</span><input name="addressDetail" placeholder="상세 주소" required /></label>
+              <p class="address-search-status field-full" role="status">‘주소 찾기’를 누르면 카카오 우편번호 검색이 열립니다.</p>
+              <label class="field-full">배송 요청사항<select name="deliveryMemo"><option>문 앞에 놓아주세요.</option><option>배송 전 연락해주세요.</option><option>경비실에 맡겨주세요.</option><option>직접 입력</option></select></label>
+            </div>
+          </section>
+
+          <section class="checkout-block">
+            <div class="checkout-block__head"><span>02</span><h2>쿠폰·포인트</h2><small>예상 금액 즉시 반영</small></div>
+            <div class="coupon-cards">
+              <label><input type="radio" name="coupon" value="" /><span><b>쿠폰 사용 안 함</b><small>할인 없이 주문</small></span></label>
+              <label><input type="radio" name="coupon" value="WELCOME10" /><span><em>10%</em><b>신규 회원 웰컴 쿠폰</b><small>최대 20,000원 할인</small></span></label>
+              <label><input type="radio" name="coupon" value="STYLE15" /><span><em>15%</em><b>첫 스타일 쿠폰</b><small>최대 30,000원 할인</small></span></label>
+            </div>
+            <label class="point-field">포인트 사용<div><input type="number" name="points" min="0" max="5000" value="0" /><button type="button" class="use-all-points">전액 사용</button></div><small>사용 가능 5,000P</small></label>
+          </section>
+
+          <section class="checkout-block">
+            <div class="checkout-block__head"><span>03</span><h2>결제 방법</h2><small>안전한 암호화 결제</small></div>
+            <div class="payment-methods">
+              <label><input type="radio" name="payment" value="card" checked /><span>신용·체크카드</span></label>
+              <label><input type="radio" name="payment" value="kakao" /><span>카카오페이</span></label>
+              <label><input type="radio" name="payment" value="naver" /><span>네이버페이</span></label>
+              <label><input type="radio" name="payment" value="toss" /><span>토스페이</span></label>
+            </div>
+          </section>
+        </div>
+
+        <aside class="order-summary">
+          <div class="order-summary__head"><p class="eyebrow">ORDER SUMMARY</p><h2>주문 상품 <span class="order-count">0</span></h2></div>
+          <div class="order-items"></div>
+          <div class="expected-price">
+            <h3>최종 예상 금액</h3>
+            <p><span>상품 금액</span><strong class="summary-subtotal">₩0</strong></p>
+            <p><span>쿠폰 할인</span><strong class="summary-coupon">−₩0</strong></p>
+            <p><span>포인트 사용</span><strong class="summary-points">−₩0</strong></p>
+            <p><span>배송비</span><strong class="summary-shipping">₩0</strong></p>
+            <div><span>결제 예정 금액</span><strong class="summary-total">₩0</strong></div>
+            <small class="discount-message">쿠폰을 선택하면 예상 금액에 바로 반영됩니다.</small>
+          </div>
+          <label class="checkout-consent"><input type="checkbox" required /><span>주문 상품, 가격, 배송 정보 및 구매 조건을 확인했으며 결제에 동의합니다.</span></label>
+          <button class="place-order" type="submit"><span class="pay-button-price">₩0</span> 결제하기 <i>↗</i></button>
+          <p class="payment-note">이 프로토타입은 실제 금액이 결제되지 않습니다.</p>
+        </aside>
+      </form>
+    </main>
+
+    <div class="order-success" aria-hidden="true">
+      <div><span class="success-check">✓</span><p class="eyebrow">ORDER COMPLETE</p><h2>주문이<br />완료되었습니다.</h2><p>주문번호 <strong class="order-number"></strong><br />새로운 결이 곧 도착합니다.</p><a href="./index.html">쇼핑 계속하기 <span>↗</span></a></div>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./src/checkout.js"></script>
+  </body>
+</html>

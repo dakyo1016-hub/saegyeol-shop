@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1eb" />
+    <title>상품 등록 · 새결 관리자</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/admin.css" />
+    <link rel="stylesheet" href="./src/admin-product.css" />
+  </head>
+  <body class="product-editor-page">
+    <header class="editor-topbar">
+      <a class="editor-brand" href="./admin.html#products"><b>새결</b><span>COMMERCE STUDIO</span></a>
+      <div class="editor-location"><a href="./admin.html#products">상품 관리</a><i>/</i><strong id="editorModeLabel">새 상품 등록</strong></div>
+      <div class="editor-top-actions"><span class="save-state"><i></i><b>모든 변경사항 저장됨</b></span><button class="editor-secondary" id="saveDraft" type="button">임시 저장</button><button class="editor-primary" id="publishProduct" type="button">상품 등록 <span>↗</span></button></div>
+    </header>
+
+    <main class="product-editor-main">
+      <form id="fullProductEditor">
+        <div class="editor-page-heading"><div><p>CATALOG EDITOR · <span id="productIdLabel">NEW</span></p><h1 id="editorPageTitle">새 상품 등록</h1><span>스토어에 노출될 상품 정보와 옵션, 콘텐츠를 입력하세요.</span></div><a href="./admin.html#products">취소하고 목록으로</a></div>
+
+        <div class="editor-page-layout">
+          <div class="editor-sections">
+            <section class="editor-section" id="basicSection"><header><span>01</span><div><h2>기본 정보</h2><p>고객이 상품을 구분하는 핵심 정보입니다.</p></div><em class="required">필수</em></header><div class="editor-section__body form-grid"><label>판매 상태<select name="active"><option value="true">판매 중</option><option value="false">숨김 / 임시 저장</option></select></label><label>카테고리<select name="category"><option value="fashion">FASHION</option><option value="beauty">BEAUTY</option></select></label><label>브랜드<input name="brand" required placeholder="브랜드명" /></label><label>배지<input name="badge" placeholder="NEW / BEST / ONLY" /></label><label class="wide">상품명<input name="name" required placeholder="상품명 · 컬러" /></label><label>대표 컬러 / 용량<input name="color" placeholder="ASH GRAY" /></label><label>브랜드 무드<input name="brandMood" placeholder="SOFT · QUIET · SEOUL" /></label></div></section>
+
+            <section class="editor-section"><header><span>02</span><div><h2>가격과 혜택</h2><p>판매가를 기준으로 할인율이 자동 계산됩니다.</p></div><em class="required">필수</em></header><div class="editor-section__body form-grid price-grid"><label>판매가<input name="priceNumber" type="number" min="0" step="100" required placeholder="59000" /><span>원</span></label><label>정가<input name="originalNumber" type="number" min="0" step="100" placeholder="69000" /><span>원</span></label><label>할인율<input name="discount" readonly placeholder="자동 계산" /><span>%</span></label><label>적립률<input name="pointRate" type="number" min="0" max="20" value="5" /><span>%</span></label></div></section>
+
+            <section class="editor-section"><header><span>03</span><div><h2>옵션과 재고</h2><p>사이즈·컬러별 SKU와 판매 가능한 재고를 관리합니다.</p></div><button class="small-action" id="addOption" type="button">옵션 추가 +</button></header><div class="editor-section__body"><div class="option-editor-head"><span>옵션명</span><span>SKU</span><span>재고</span><span>실측값 (cm)</span><span></span></div><div class="option-editor-list" id="optionEditorList"></div><div class="stock-summary"><span>총 판매 가능 재고</span><strong><b id="totalStock">0</b>개</strong></div><div class="measurement-config"><label>실측 항목<input name="measureColumns" placeholder="총장, 어깨, 가슴 단면, 소매장, 밑단" /></label><p>각 옵션의 실측값은 위 항목과 동일한 순서로 쉼표를 사용해 입력합니다.</p></div></div></section>
+
+            <section class="editor-section"><header><span>04</span><div><h2>상품 이미지</h2><p>대표 이미지부터 착용·제품 디테일 순으로 등록하세요.</p></div><button class="small-action" id="addGalleryImage" type="button">이미지 추가 +</button></header><div class="editor-section__body"><div class="image-fields"><label class="image-field image-field--main"><span>대표 이미지</span><div><img id="mainImagePreview" src="" alt="대표 이미지 미리보기" /><input name="image" required placeholder="./assets/products/product.jpg" /></div></label><label class="image-field"><span>호버 / 착용 이미지</span><div><img id="modelImagePreview" src="" alt="착용 이미지 미리보기" /><input name="modelImage" placeholder="./assets/products/product-worn.jpg" /></div></label></div><div class="gallery-editor"><div class="gallery-editor__head"><strong>상세 갤러리</strong><span>드래그 순서 대신 위에서 아래 순서로 노출됩니다.</span></div><div id="galleryEditorList"></div></div></div></section>
+
+            <section class="editor-section"><header><span>05</span><div><h2>상품 콘텐츠</h2><p>상세페이지의 상품 설명과 소재 정보를 구성합니다.</p></div><em class="required">필수</em></header><div class="editor-section__body content-fields"><label>한 줄 요약<textarea name="summary" maxlength="140" required placeholder="상품의 특징을 한 문장으로 설명해주세요."></textarea><span><b data-count-for="summary">0</b>/140</span></label><label>상세 설명<textarea name="detail" maxlength="600" required placeholder="핏, 촉감, 활용법과 관리 방법을 설명해주세요."></textarea><span><b data-count-for="detail">0</b>/600</span></label><label>소재 / 주요 성분<textarea name="material" maxlength="200" required placeholder="COTTON 100%"></textarea><span><b data-count-for="material">0</b>/200</span></label><label>브랜드 설명<textarea name="brandDescription" maxlength="300" placeholder="브랜드가 추구하는 가치와 무드를 설명해주세요."></textarea><span><b data-count-for="brandDescription">0</b>/300</span></label></div></section>
+
+            <section class="editor-section"><header><span>06</span><div><h2>검색과 노출</h2><p>스토어 검색과 외부 공유에 사용되는 정보입니다.</p></div></header><div class="editor-section__body form-grid"><label class="wide">검색 키워드<input name="keywords" placeholder="여름, 오버핏, 데일리, 드롭숄더" /></label><label class="wide">URL 슬러그<input name="slug" placeholder="air-cotton-drop-tee-light-gray" /></label></div></section>
+
+            <div class="editor-bottom-actions"><button class="danger-action" id="archiveProduct" type="button" hidden>상품 숨김 처리</button><div><a href="./admin.html#products">취소</a><button class="editor-secondary" type="button" data-save-draft>임시 저장</button><button class="editor-primary" type="submit">변경사항 저장 <span>↗</span></button></div></div>
+          </div>
+
+          <aside class="editor-preview-column"><div class="preview-sticky"><header><div><small>LIVE PREVIEW</small><h2>스토어 미리보기</h2></div><a id="openProductLink" href="#" target="_blank" hidden>상세 열기 ↗</a></header><article class="catalog-preview"><div class="catalog-preview__media"><img id="catalogPreviewImage" src="" alt="상품 카드 미리보기" /><span id="catalogPreviewBadge">NEW</span><button type="button">♡</button><i>QUICK ADD +</i></div><div class="catalog-preview__info"><small id="catalogPreviewBrand">BRAND</small><strong id="catalogPreviewName">상품명을 입력해주세요.</strong><p><em id="catalogPreviewDiscount"></em><b id="catalogPreviewPrice">₩0</b><del id="catalogPreviewOriginal"></del></p></div></article><div class="preview-checklist"><strong>등록 체크리스트</strong><ul><li data-check="basic"><i></i>기본 정보 입력</li><li data-check="price"><i></i>판매가 설정</li><li data-check="option"><i></i>옵션과 재고 등록</li><li data-check="image"><i></i>대표 이미지 등록</li><li data-check="content"><i></i>상세 콘텐츠 입력</li></ul></div><div class="preview-note"><small>ADMIN NOTE</small><p>임시 저장은 스토어에 노출되지 않습니다. ‘상품 등록’ 또는 판매 상태를 ‘판매 중’으로 저장해야 고객 화면에 표시됩니다.</p></div></div></aside>
+        </div>
+      </form>
+    </main>
+    <div class="admin-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./src/admin-product.js"></script>
+  </body>
+</html>

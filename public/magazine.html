@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1eb" />
+    <meta name="description" content="새결 매거진 — 패션과 뷰티를 새로운 시선으로 읽는 이야기" />
+    <title>새결 매거진 — 취향을 읽는 시간</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="magazine-page">
+    <header class="site-header scrolled magazine-header">
+      <a class="brand" href="./index.html"><b>새결</b><small>새로운 취향의 결</small></a>
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <a href="./index.html#new">NEW</a><a href="./index.html#ranking">RANKING</a><a href="./index.html#fashion">FASHION</a><a href="./index.html#beauty">BEAUTY</a><a class="active" href="./magazine.html">MAGAZINE</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="./index.html#new" aria-label="검색"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></a>
+        <button class="icon-btn desktop-only account-toggle" type="button" aria-label="마이페이지"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.8 21c.7-4 3.1-6 7.2-6s6.5 2 7.2 6"/></svg></button>
+        <button class="icon-btn desktop-only wishlist-toggle" type="button" aria-label="찜 목록"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 5.6c-2.1-2.1-5.6-1.8-7.5.5l-1 1.2-1-1.2c-1.9-2.3-5.4-2.6-7.5-.5-2.3 2.3-2.1 6 .3 8.1L12 21l8.2-7.3c2.4-2.1 2.6-5.8.3-8.1Z"/></svg></button>
+        <button class="cart-btn" type="button">CART <span class="cart-count">0</span></button>
+        <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true"><nav><a href="./index.html#new"><span>01</span>SHOP</a><a href="./index.html#fashion"><span>02</span>FASHION</a><a href="./index.html#beauty"><span>03</span>BEAUTY</a><a href="./magazine.html"><span>04</span>MAGAZINE</a><button class="mobile-account account-toggle" type="button"><span>05</span>MY 새결</button><button class="mobile-account wishlist-toggle" type="button"><span>06</span>WISHLIST</button></nav><p>오늘의 결을 읽다.</p></div>
+
+    <main class="magazine-main">
+      <section class="magazine-masthead">
+        <div><p class="eyebrow">STORIES FOR YOUR MOOD · ISSUE 08</p><h1>새결<br />매거진</h1></div>
+        <p>옷을 고르는 감각부터<br />피부 위에 머무는 빛까지.<br />새로운 취향의 결을 읽습니다.</p>
+      </section>
+
+      <nav class="magazine-categories" aria-label="매거진 카테고리">
+        <button class="active" data-mag-filter="all" type="button">ALL</button><button data-mag-filter="fashion" type="button">FASHION</button><button data-mag-filter="beauty" type="button">BEAUTY</button><button data-mag-filter="people" type="button">PEOPLE</button><button data-mag-filter="brand" type="button">BRAND NOTE</button>
+      </nav>
+
+      <section class="magazine-feature" aria-label="이달의 주요 스토리">
+        <article class="feature-story" data-story="soft-boundary" data-category="fashion">
+          <button type="button" aria-label="경계가 부드러워지는 순간 읽기"><img src="./assets/products/sheer-blouson-korean.webp" alt="시어 블루종을 착용한 한국인 모델" /><span class="story-label">COVER STORY · FASHION</span><div class="feature-overlay"><strong>경계가<br />부드러워지는 순간</strong><small>시어한 소재가 만드는 여름의 새로운 레이어</small><i>READ STORY ↗</i></div></button>
+        </article>
+        <article class="feature-story" data-story="skin-light" data-category="beauty">
+          <button type="button" aria-label="피부가 기억하는 빛 읽기"><img src="./assets/products/barrier-serum-worn.webp" alt="세럼을 사용하는 흑인 모델" /><span class="story-label">BEAUTY ESSAY · 07 MIN</span><div class="feature-overlay"><strong>피부가<br />기억하는 빛</strong><small>광택보다 오래 남는 건강한 피부의 조건</small><i>READ STORY ↗</i></div></button>
+        </article>
+      </section>
+
+      <div class="magazine-ticker"><div><span>FASHION</span><i></i><span>BEAUTY</span><i></i><span>PEOPLE</span><i></i><span>BRAND NOTE</span><i></i><span>FASHION</span><i></i><span>BEAUTY</span><i></i><span>PEOPLE</span><i></i><span>BRAND NOTE</span><i></i></div></div>
+
+      <section class="magazine-latest">
+        <div class="magazine-section-title"><div><p class="eyebrow">LATEST STORIES</p><h2>요즘의 취향</h2></div><p><b>08</b> STORIES<br />UPDATED WEEKLY</p></div>
+        <div class="magazine-grid" id="magazineGrid">
+          <article class="mag-card mag-card--wide" data-story="one-shoulder" data-category="fashion"><button type="button"><span class="mag-image"><img src="./assets/products/draped-top-worn.webp" alt="아이보리 드레이프 톱을 입은 모델" /><small>FASHION · STYLE NOTE</small></span><strong>한쪽 어깨만으로<br />완성되는 여름의 선</strong><p>비대칭과 드레이프를 어렵지 않게 입는 법</p><i>2026.08.11 · 06 MIN</i></button></article>
+          <article class="mag-card" data-story="coral" data-category="beauty"><button type="button"><span class="mag-image"><img src="./assets/products/lip-tint-korean.webp" alt="코랄 립을 바른 한국인 모델" /><small>BEAUTY · COLOR</small></span><strong>얼굴의 온도를<br />바꾸는 코랄 한 방울</strong><p>피부 톤마다 다르게 피어나는 코랄 컬러</p><i>2026.08.10 · 04 MIN</i></button></article>
+          <article class="mag-card mag-card--tall" data-story="bag" data-category="brand"><button type="button"><span class="mag-image"><img src="./assets/products/shoulder-bag-korean.webp" alt="블랙 숄더백을 착용한 한국인 모델" /><small>BRAND NOTE · OBJECT</small></span><strong>매일의 모양을<br />담는 검은 곡선</strong><p>좋은 가방이 시간을 견디는 방식</p><i>2026.08.09 · 08 MIN</i></button></article>
+          <article class="mag-card" data-story="scent" data-category="people"><button type="button"><span class="mag-image"><img src="./assets/products/gentle-night-perfume-worn.webp" alt="향수를 사용하는 모델" /><small>PEOPLE · SCENT</small></span><strong>내가 나를 기억하는<br />가장 짧은 방법</strong><p>세 사람의 향과 밤에 관한 대화</p><i>2026.08.08 · 09 MIN</i></button></article>
+          <article class="mag-card mag-card--wide" data-story="linen" data-category="fashion"><button type="button"><span class="mag-image"><img src="./assets/products/summer-half-jacket-worn.webp" alt="크림 린넨 재킷을 입은 모델" /><small>FASHION · MATERIAL</small></span><strong>구김까지 좋아지는<br />린넨의 계절</strong><p>단정함과 느슨함 사이, 여름 재킷 이야기</p><i>2026.08.07 · 05 MIN</i></button></article>
+          <article class="mag-card" data-story="hands" data-category="beauty"><button type="button"><span class="mag-image"><img src="./assets/products/shell-hand-cream-korean.webp" alt="핸드크림을 사용하는 한국인 모델" /><small>BEAUTY · RITUAL</small></span><strong>손끝에 남는<br />작고 좋은 습관</strong><p>향과 보습을 한 번에 챙기는 저녁 루틴</p><i>2026.08.06 · 03 MIN</i></button></article>
+        </div>
+      </section>
+
+      <section class="magazine-shop-story"><div class="shop-story-copy"><p class="eyebrow">SHOP THE STORY</p><h2>읽은 취향을<br />바로 입어보세요.</h2><p>이야기 속에 등장한 패션과 뷰티 제품을 한곳에 모았습니다.</p><a href="./index.html#new">전체 상품 보기 <span>↗</span></a></div><div class="shop-story-products" id="magazineProducts"></div></section>
+    </main>
+
+    <aside class="magazine-reader" aria-hidden="true"><button class="reader-close" type="button">CLOSE ×</button><div class="reader-scroll"><header><p class="reader-meta"></p><h2 class="reader-title"></h2><p class="reader-deck"></p></header><img class="reader-hero" src="" alt="" /><article class="reader-body"></article><section><p class="eyebrow">SHOP THIS STORY</p><div class="reader-products"></div></section></div></aside>
+
+    <footer class="footer"><div class="footer-brand">새결</div><div class="footer-bottom"><span>© 2026 새결 매거진.</span><span>오늘의 결을 읽다.</span></div></footer>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./src/magazine.js"></script>
+  </body>
+</html>
