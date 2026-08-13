@@ -9,6 +9,80 @@
   --font-display: "Archivo", "Arial Narrow", sans-serif;
   --font-body: "Noto Sans KR", sans-serif;
   --font-brand: "Noto Serif KR", serif;
+  --surface: #f6f4ef;
+  --surface-soft: #e8e5dd;
+  --surface-muted: #dedbd2;
+}
+
+html[data-theme="dark"] {
+  --ink: #f2f0e9;
+  --paper: #11110f;
+  --white: #181816;
+  --line: rgba(242, 240, 233, .2);
+  --muted: #a3a098;
+  --surface: #191917;
+  --surface-soft: #23231f;
+  --surface-muted: #292823;
+}
+
+html, body, .site-header, .commerce-drawer, .drawer-foot, .mobile-bottom-nav, .ai-chat__panel { transition: color .28s ease, background-color .28s ease, border-color .28s ease; }
+.theme-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: color-mix(in srgb, var(--paper) 82%, transparent); cursor: pointer; }
+.theme-toggle > span { position: relative; width: 25px; height: 13px; border: 1px solid currentColor; border-radius: 999px; opacity: .75; }
+.theme-toggle i { position: absolute; top: 2px; left: 2px; width: 7px; height: 7px; border-radius: 50%; background: currentColor; transition: transform .25s ease; }
+.theme-toggle[aria-pressed="true"] i { transform: translateX(12px); }
+.theme-toggle b { font: 650 7px/1 var(--font-display); letter-spacing: .08em; }
+.theme-toggle--floating { position: fixed; z-index: 440; top: 16px; right: 16px; }
+
+html[data-theme="dark"] .site-header.scrolled { background: rgba(17,17,15,.9); }
+html[data-theme="dark"] .brand small { color: #aaa79f; }
+html[data-theme="dark"] .product-media,
+html[data-theme="dark"] .my-product-row a img,
+html[data-theme="dark"] .my-scene__products img,
+html[data-theme="dark"] .mag-image { background: #282722; }
+html[data-theme="dark"] .tone-finder,
+html[data-theme="dark"] .related-section,
+html[data-theme="dark"] .magazine-shop-story { background: var(--surface-muted); }
+html[data-theme="dark"] .community-tabs,
+html[data-theme="dark"] .review-cards article,
+html[data-theme="dark"] .qa-form,
+html[data-theme="dark"] .qa-form textarea,
+html[data-theme="dark"] .qa-content p,
+html[data-theme="dark"] .commerce-drawer,
+html[data-theme="dark"] .drawer-foot,
+html[data-theme="dark"] .checkout-page,
+html[data-theme="dark"] .postcode-layer__panel,
+html[data-theme="dark"] .magazine-page,
+html[data-theme="dark"] .mag-product,
+html[data-theme="dark"] .magazine-reader { color: var(--ink); background: var(--surface); }
+html[data-theme="dark"] .order-summary,
+html[data-theme="dark"] .coupon-cards input:checked + span,
+html[data-theme="dark"] .size-table-wrap thead th,
+html[data-theme="dark"] .measure-help,
+html[data-theme="dark"] .my-inquiry > span { color: var(--ink); background: var(--surface-soft); }
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select { color: var(--ink); background-color: transparent; }
+html[data-theme="dark"] option { color: #11110f; background: #f3f1eb; }
+html[data-theme="dark"] .toss-payment-shell { background: #fff; color-scheme: light; }
+html[data-theme="dark"] .mobile-menu { color: #11110f; }
+html[data-theme="dark"] .mobile-bottom-nav { background: rgba(17,17,15,.95); }
+html[data-theme="dark"] .mobile-nav-icon--home::after { background: rgba(17,17,15,.95); }
+html[data-theme="dark"] .ai-chat { --ai-ink: #f2f0e9; --ai-paper: #151513; --ai-line: rgba(242,240,233,.2); }
+html[data-theme="dark"] .ai-chat__head { color: #11110f; background: var(--ai-ink); }
+html[data-theme="dark"] .ai-chat__head p { color: rgba(17,17,15,.6); }
+html[data-theme="dark"] .ai-chat__head-actions button { color: #11110f; border-color: rgba(17,17,15,.35); }
+html[data-theme="dark"] .ai-chat__message p,
+html[data-theme="dark"] .ai-chat__form { color: var(--ai-ink); background: #20201d; }
+html[data-theme="dark"] .ai-chat__message--user p,
+html[data-theme="dark"] .ai-chat__form button { color: #11110f; background: var(--ai-ink); }
+html[data-theme="dark"] .ai-chat__launcher { color: #11110f; background: #f2f0e9; border-color: rgba(17,17,15,.2); }
+html[data-theme="dark"] .ai-chat__launcher-copy small { color: rgba(17,17,15,.65); }
+html[data-theme="dark"] .ai-chat__launcher-icon { border-color: rgba(17,17,15,.35); }
+
+@media (max-width: 680px) {
+  .theme-toggle b { display: none; }
+  .theme-toggle { width: 36px; min-height: 30px; padding: 0 5px; }
+  .theme-toggle > span { width: 24px; }
 }
 
 /* Full my page */
